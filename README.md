@@ -21,7 +21,23 @@ Address=192.168.99.15/24
 ln -s /home/root/pinewoods/fl_edison_monitor/monitor-yfs201.py monitor-yfs201.py
 
 
-#Utilize a IDE do Arduino para subir o código device.ino no intel edison
+# Utilize a IDE do Arduino para subir o código device.ino no intel edison
+# Ou para subir remotamente o sketch primeiro abra a IDE do arduino
+
+# No edison antes de mais nada, delete ou faça um backup do sketch.elf antigo
+
+# Va em Preferences e habilite o verbose para compilation
+# Compile o código e verifique onde a IDE salvou o .elf do seu código
+
+# Faça um mv do seu .elf para sketch.elf e por fim faça o scp
+
+mv device.cpp.elf sketch.elf
+
+scp sketch.elf root@192.168.2.101:/sketch/sketch.elf
+
+# Acesse o Edison e adicione a permissão:
+
+chmod +x sketch.elf
 
 
 #Para rodar o código python rode o script
@@ -38,5 +54,6 @@ chmod +x pinewoods.service
 
 #habilite o service no system init
 systemctl enable pinewoods.service 
+
 
 
