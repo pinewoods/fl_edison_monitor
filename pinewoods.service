@@ -1,0 +1,21 @@
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+[Unit]
+Description=DEC Water Service initialization
+DefaultDependencies=no
+
+[Service]
+Type=idle
+Restart=always
+RestartSec=0
+TimeoutStartSec=1min
+ExecStart=/home/root/pinewoods/fl_edison_monitor/monitor-arduino.sh 
+#CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW CAP_SYS_PTRACE CAP_SYS_MODULE
+Restart=on-watchdog
+WatchdogSec=1min
+

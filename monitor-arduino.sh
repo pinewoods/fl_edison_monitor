@@ -1,2 +1,2 @@
 #!/bin/bash
-python $PWD/monitor-yfs201.py 
+python /home/root/pinewoods/fl_edison_monitor/monitor-yfs201.py 
