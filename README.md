@@ -29,18 +29,14 @@ ln -s /home/root/pinewoods/fl_edison_monitor/monitor-yfs201.py monitor-yfs201.py
 
 #Para adicionar o código na inicialização faça um link para pasta de init
 
-cd /etc/init.d/
+cp pinewoods.service /lib/systemd/system/
 
-#Crie o link
-
-ln -s ~/pinewoods/fl_edison_monitor/pine-start.sh pine-start.sh
+cd /lib/systemd/system
 
 #Adicione a permissao
-chmod +x pine-start.sh 
+chmod +x pinewoods.service 
 
-cd /etc/init.d/
-
-#adicione no rc defaults
-update-rc.d pine-start.sh defaults
+#habilite o service no system init
+systemctl enable pinewoods.service 
 
 
