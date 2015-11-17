@@ -19,3 +19,6 @@ ExecStart=/home/root/pinewoods/fl_edison_monitor/monitor-arduino.sh
 Restart=on-watchdog
 WatchdogSec=1min
 
+[Install]
+WantedBy=multi-user.target
+
