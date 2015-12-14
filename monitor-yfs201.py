@@ -18,8 +18,8 @@ while True:
     try:
         with open('/tmp/arduino.json','r') as fp:
             sensor_read = json.load(fp)
-        url = 'http://ws.pinewoods.com.br/api'
-        #url = 'http://127.0.0.1:5000/api'
+        url = 'http://ws.pinewoods.com.br/api/'
+        #url = 'http://127.0.0.1:5000/api/'
         data = urllib.urlencode(sensor_read)
         req = urllib2.Request(url, data)
         response = urllib2.urlopen(req)
